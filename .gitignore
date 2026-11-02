@@ -1,1 +1,5 @@
 expired/
+temp/
+.venv/
+dist/
+/index.html

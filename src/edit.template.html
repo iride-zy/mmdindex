@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex,nofollow">
+<title>编辑 MMD 目录</title>
+<link rel="stylesheet" href="./edit.css?v=__MMD_VERSION__">
+</head>
+<body>
+<header class="topbar">
+  <a class="back" href="./index.html">← 返回目录</a>
+  <div class="top-title">MMD 目录 · 编辑</div>
+  <div class="top-actions">
+    <button id="newBtn" class="btn btn-accent" type="button">新增条目</button>
+    <a class="quiet" href="./index.html#lib">浏览目录</a>
+  </div>
+</header>
+
+<main class="layout">
+  <aside class="picker" aria-label="选择条目">
+    <label class="search-wrap">
+      <span class="sr-only">搜索条目</span>
+      <input id="search" type="search" placeholder="搜索 seq / 标题 / 作者 / URL" autocomplete="off" spellcheck="false">
+    </label>
+    <div id="recordList" class="record-list"></div>
+  </aside>
+
+  <section class="editor" aria-label="编辑表单">
+    <div class="editor-head">
+      <div>
+        <h1 id="editorTitle">选择条目</h1>
+        <p id="editorMeta" class="meta">从左侧选择，或新增条目。</p>
+      </div>
+      <span id="dirtyBadge" class="badge" hidden>未导出</span>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="编辑模式">
+      <button id="tabForm" class="tab active" type="button" role="tab" aria-selected="true">表单</button>
+      <button id="tabJson" class="tab" type="button" role="tab" aria-selected="false">JSON</button>
+    </div>
+
+    <div id="formPane" class="pane">
+      <form id="recordForm" autocomplete="off"></form>
+    </div>
+
+    <div id="jsonPane" class="pane" hidden>
+      <p class="hint">高级编辑：对象必须包含完整记录；应用后回到表单会重新生成控件。</p>
+      <textarea id="jsonEditor" spellcheck="false" aria-label="记录 JSON"></textarea>
+      <div class="json-actions">
+        <button id="applyJson" class="btn" type="button">应用 JSON</button>
+      </div>
+    </div>
+
+    <div class="editor-actions">
+      <button id="previewBtn" class="btn btn-accent" type="button">预览 JSON</button>
+      <button id="copyBtn" class="btn" type="button" disabled>复制片段</button>
+      <button id="downloadBtn" class="btn" type="button" disabled>下载 .json</button>
+    </div>
+
+    <p id="status" class="status" role="status" hidden></p>
+    <div id="errors" class="errors" role="alert" hidden></div>
+    <div id="warnings" class="warnings" hidden></div>
+  </section>
+
+  <section id="previewPane" class="preview" aria-label="JSON 确认" hidden>
+    <div class="preview-head">
+      <h2>确认 JSON</h2>
+      <button id="closePreview" class="btn" type="button">关闭</button>
+    </div>
+    <p id="previewHint" class="hint"></p>
+    <pre id="previewJson"></pre>
+    <div class="preview-actions">
+      <button id="previewCopy" class="btn btn-accent" type="button">复制片段</button>
+      <button id="previewDownload" class="btn" type="button">下载 .json</button>
+    </div>
+  </section>
+</main>
+
+<script src="./mmd.js?v=__MMD_VERSION__"></script>
+<script src="./schema.js?v=__MMD_VERSION__"></script>
+<script src="./media.js?v=__MMD_VERSION__"></script>
+<script src="./edit.js?v=__MMD_VERSION__"></script>
+</body>
+</html>
