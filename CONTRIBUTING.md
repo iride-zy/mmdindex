@@ -42,6 +42,14 @@ node scripts/build.mjs --out dist
 - 合并到 `main`：同一套检查后部署 GitHub Pages。
 - 有错误会阻止构建；未知 key 只警告，不阻止。
 
+### 首次启用 Pages
+
+GitHub 的 `GITHUB_TOKEN` 不能创建 Pages 站点，只能部署。首次需要手动设置一次：
+
+`Settings → Pages → Build and deployment → Source → GitHub Actions`
+
+之后推送到 `main` 即可自动部署。私有仓库在免费账户下不能使用 Pages。
+
 ## 边界
 
 - 编辑页只生成 JSON，不能写仓库，不保存 Token。
